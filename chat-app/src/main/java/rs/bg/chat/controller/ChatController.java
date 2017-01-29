@@ -12,7 +12,7 @@ public class ChatController {
     @MessageMapping("/chat")
     @SendTo("/topic/chat")
     public ChatMessage receiveAndSendMessage(ChatMessage message) throws Exception {
-        return new ChatMessage(message.getContent());
+    	return new ChatMessage(message.getContent(), message.getChatAccount());
     }
 
 }

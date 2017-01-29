@@ -1,0 +1,45 @@
+<div>
+	<!-- setting username -->
+	<div id="chat_user" ng-class="showUsernameInput">
+		<form name="usernameForm" >
+			<div class="user_input_area">
+				<input class="chat_input" name="username" ng-model="username" placeholder="Enter your username..."></input>
+			</div>
+			<div class="user_buttons">
+				<button class="user_submit" ng-click="setUsername()" ng-disabled="username.length === 0">Set username</button>
+			</div>
+		</form>
+	</div>
+	
+	 
+	<div  id="chat_window" ng-class="chatWindowEnabled">
+		<!-- chat content -->
+		<div id="chat_messages" class="chat_messages" scroll-glue>
+			<p ng-repeat="msg in messages">
+				<time>[{{msg.time | date:'HH:mm:ss'}}]</time>
+				<span>< {{msg.chat_account}} >  {{msg.content}}</span>
+			</p>
+		</div>
+		
+		
+		<div class="chat_interface">
+			<form ng-submit="sendMessage()" name="interfaceForm">
+				<div class="chat_interface_inner">
+				
+				<!-- change username icon -->
+					<div class="chat_user_button" ng-click="changeUsername()">
+						<img src="/images/change-username-icon.png" title="Change username" >
+					</div>					
+					
+					<div class="chat_input_area">
+						<input class="chat_input" ng-model="message" placeholder="Type a message here..."></input>
+					</div>
+					
+					<div class="chat_buttons">
+						<button class="chat_submit" ng-disabled="message.length === 0">Send</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
