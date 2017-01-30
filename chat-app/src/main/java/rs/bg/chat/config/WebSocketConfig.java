@@ -10,15 +10,18 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
-    @Override
+	public static final String WEBSOCKET_ENDPOINT = "/chat-websocket";
+	public static final String APPLICATION_DESTINATION_PREFIX = "/app";
+
+	@Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
-        config.setApplicationDestinationPrefixes("/app");
+        config.setApplicationDestinationPrefixes(APPLICATION_DESTINATION_PREFIX);
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chat-websocket").withSockJS();
+        registry.addEndpoint(WEBSOCKET_ENDPOINT).withSockJS();
     }
 
 }
