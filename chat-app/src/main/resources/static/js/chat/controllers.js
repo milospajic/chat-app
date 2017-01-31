@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module('chatApp').controller('ChatController', ChatController);
-	ChatController.$inject = [ "chatService", "$scope" ];
+	ChatController.$inject = [ "ChatService", "$scope" ];
 	function ChatController(ChatService, $scope) {
 
 		$scope.messages = [];

@@ -1,9 +1,9 @@
 (function() {
 	'use strict';
-	angular.module('chatApp').service('chatService', chatService);
-	chatService.$inject = [ "$q", "$timeout" ];
+	angular.module('chatApp').service('ChatService', ChatService);
+	ChatService.$inject = [ "$q", "$timeout" ];
 
-	function chatService($q, $timeout) {
+	function ChatService($q, $timeout) {
 
 		var service = {}, listener = $q.defer(), socket = {
 			client : null,
